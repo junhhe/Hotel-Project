@@ -1,0 +1,465 @@
+<html>
+  <head>
+    <style>
+      #room1 {
+        width:16vw;
+        height:100vh;
+        background-color:red;
+        float:left;
+      }
+      #room2 {
+        width:16vw;
+        height:100vh;
+        background-color:orange;
+        float:left;
+      }
+      #room3 {
+        width:16vw;
+        height:100vh;
+        background-color:yellow;
+        float:left;
+      }
+      #room4 {
+        width:16vw;
+        height:100vh;
+        background-color:green;
+        float:left;
+      }
+      #room5 {
+        width:16vw;
+        height:100vh;
+        background-color:blue;
+        float:left;
+      }
+      #room6 {
+        width:16vw;
+        height:100vh;
+        background-color:purple;
+        float:left;
+      }
+    </style>
+  </head>
+  <body>
+        <h1>Junhong's Hotel</h1>
+      <div id="room1">
+        <h1>Room 1</h1>
+ <input type="text" id="usersName">
+  <button onclick="checkList()">check in</button>
+  <ol></ol>
+  <h2 id="putNumberHere"></h2>
+  <button onclick="remove()">Remove a guest</button>
+  <select id="guests">
+      <option value="0">1</option>
+      <option value="1">2</option>
+      <option value="2">3</option>
+      <option value="3">4</option>
+      </select>
+  <button onclick="removeAll()">Remove all</button>
+  <button onclick="lockRoom()">Lock Room</button>
+    <ol id="qwe"></ol>
+</div>
+
+
+ <div id="room2">
+        <h1>Room 2</h1>
+ <input type="text" id="usersNameOne">
+  <button onclick="checkListOne()">check in</button>
+  <ol></ol>
+  <h2 id="putNumberHereOne"></h2>
+  <button onclick="removeOne()">Remove a guest</button>
+  <select id="guests1">
+      <option value="0">1</option>
+      <option value="1">2</option>
+      <option value="2">3</option>
+      <option value="3">4</option>
+      </select>
+  <button onclick="removeAllOne()">Remove all</button>
+  <button onclick="lockRoomOne()">Lock Room</button>
+    <ol id="qweOne"></ol>
+</div>
+  
+  <div id="room3">
+        <h1>Room 3</h1>
+ <input type="text" id="usersNameTwo">
+  <button onclick="checkListTwo()">check in</button>
+  <ol></ol>
+  <h2 id="putNumberHereTwo"></h2>
+  <button onclick="removeTwo()">Remove a guest</button>
+  <select id="guestsTwo">
+      <option value="0">1</option>
+      <option value="1">2</option>
+      <option value="2">3</option>
+      <option value="3">4</option>
+      </select>
+  <button onclick="removeAllTwo()">Remove all</button>
+  <button onclick="lockRoomTwo()">Lock Room</button>
+    <ol id="qweTwo"></ol>
+</div>
+
+<div id="room4">
+        <h1>Room 4</h1>
+ <input type="text" id="usersNameThree">
+  <button onclick="checkListThree()">check in</button>
+  <ol></ol>
+  <h2 id="putNumberHereThree"></h2>
+  <button onclick="removeThree()">Remove a guest</button>
+  <select id="guestsThree">
+      <option value="0">1</option>
+      <option value="1">2</option>
+      <option value="2">3</option>
+      <option value="3">4</option>
+      </select>
+  <button onclick="removeAllThree()">Remove all</button>
+  <button onclick="lockRoomThree()">Lock Room</button>
+    <ol id="qweThree"></ol>
+</div>
+
+<div id="room5">
+        <h1>Room 5</h1>
+ <input type="text" id="usersNameFour">
+  <button onclick="checkListFour()">check in</button>
+  <ol></ol>
+  <h2 id="putNumberHereFour"></h2>
+  <button onclick="removeFour()">Remove a guest</button>
+  <select id="guestsFour">
+      <option value="0">1</option>
+      <option value="1">2</option>
+      <option value="2">3</option>
+      <option value="3">4</option>
+      </select>
+  <button onclick="removeAllFour()">Remove all</button>
+  <button onclick="lockRoomFour()">Lock Room</button>
+    <ol id="qweFour"></ol>
+</div>
+
+<div id="room6">
+        <h1>Room 6</h1>
+ <input type="text" id="usersNameFive">
+  <button onclick="checkListFive()">check in</button>
+  <ol></ol>
+  <h2 id="putNumberHereFive"></h2>
+  <button onclick="removeFive()">Remove a guest</button>
+  <select id="guestsFive">
+      <option value="0">1</option>
+      <option value="1">2</option>
+      <option value="2">3</option>
+      <option value="3">4</option>
+      </select>
+  <button onclick="removeAllFive()">Remove all</button>
+  <button onclick="lockRoomFive()">Lock Room</button>
+    <ol id="qweFive"></ol>
+</div>
+  <script>
+      
+      var total = [];
+    function checkList() {
+      if (total === 4){
+                document.getElementById('putNumberHere').innerHTML = "Too full!";
+        }
+        else {
+        total++
+           var x = document.getElementById('usersName').value.toLowerCase();
+      document.getElementById('usersName').value = "";
+      var li = document.createElement('li');
+      var newText = document.createTextNode(x);
+      li.appendChild(newText);
+      var olTag = document.getElementsByTagName('ol')[0];
+      olTag.appendChild(li);
+      document.getElementById('usersName').innerHTML = "";
+      document.getElementsByTagName('h2')[0].innerHTML = "";
+        var se = document.getElementById('qwe');
+        var newTextTwo = document.createTextNode(x);
+        var liTwo = document.createElement('li');
+          liTwo.appendChild(newTextTwo);
+          se.appendChild(liTwo);
+        }
+        
+    var dt = new Date();
+    var checkIn = document.createTextNode(" checked in: " + dt.toUTCString());
+    li.appendChild(checkIn);
+    var checkInTwo = document.createTextNode(" checked in: " + dt.toUTCString());
+    liTwo.appendChild(checkInTwo);
+    }
+   function remove(){
+    var gue = document.getElementById('guests').value;
+    var elim = document.getElementsByTagName('ol')[0];
+    var ulTag = elim.childNodes[0];
+    elim.removeChild(ulTag);
+    total--;
+document.getElementById('putNumberHere').innerHTML = "";
+    }
+    function removeAll(){
+      document.getElementsByTagName('h2')[0].innerHTML = "All guests removed";
+      var hot = document.getElementsByTagName('ol')[0];
+      while (hot.hasChildNodes()) {
+        hot.removeChild(hot.firstChild);
+      }
+      total = 0;
+    }
+    function lockRoom() {
+      var lock = document.getElementById('room1');
+      lock.style.display="none";
+    }
+
+      var totalGuest = [];
+    function checkListOne() {
+      if (totalGuest === 4){
+                document.getElementById('putNumberHereOne').innerHTML = "Too full!";
+        }
+        else {
+        totalGuest++
+           var x = document.getElementById('usersNameOne').value.toLowerCase();
+      document.getElementById('usersNameOne').value = "";
+      var li = document.createElement('li');
+      //var dt = new Date();
+      var newText = document.createTextNode(x);
+      li.appendChild(newText);
+      var olTag = document.getElementsByTagName('ol')[2];
+      olTag.appendChild(li);
+      document.getElementById('usersNameOne').innerHTML = "";
+      document.getElementsByTagName('h2')[1].innerHTML = "";
+        var se = document.getElementById('qweOne');
+        var newTextTwo = document.createTextNode(x);
+        var liTwo = document.createElement('li');
+          liTwo.appendChild(newTextTwo);
+          se.appendChild(liTwo);
+        }
+        
+    var dt = new Date();
+    var checkIn = document.createTextNode(" checked in: " + dt.toUTCString());
+    li.appendChild(checkIn);
+    var checkInTwo = document.createTextNode(" checked in: " + dt.toUTCString());
+    liTwo.appendChild(checkInTwo);
+    }
+    
+   function removeOne(){
+    var gue = document.getElementById('guests1').value;
+    var elim = document.getElementsByTagName('ol')[2];
+    var ulTag = elim.childNodes[0];
+    elim.removeChild(ulTag);
+    totalGuest--;
+document.getElementById('putNumberHereOne').innerHTML = "";
+    }
+    function removeAllOne(){
+      document.getElementsByTagName('h2')[1].innerHTML = "All guests removed";
+      var hot = document.getElementsByTagName('ol')[2];
+      while (hot.hasChildNodes()) {
+        hot.removeChild(hot.firstChild);
+      }
+      totalGuest = 0;
+    }
+    function lockRoomOne() {
+      var lock = document.getElementById('room2');
+      lock.style.display="none";
+    }
+    
+    var totalGuestThree = [];
+    function checkListTwo() {
+      if (totalGuestThree === 4){
+                document.getElementById('putNumberHereTwo').innerHTML = "Too full!";
+        }
+        else {
+        totalGuestThree++;
+           var x = document.getElementById('usersNameTwo').value.toLowerCase();
+      document.getElementById('usersNameTwo').value = "";
+      var li = document.createElement('li');
+      //var dt = new Date();
+      var newText = document.createTextNode(x);
+      li.appendChild(newText);
+      var olTag = document.getElementsByTagName('ol')[4];
+      olTag.appendChild(li);
+      document.getElementById('usersNameTwo').innerHTML = "";
+      document.getElementsByTagName('h2')[2].innerHTML = "";
+        var se = document.getElementById('qweTwo');
+        var newTextTwo = document.createTextNode(x);
+        var liTwo = document.createElement('li');
+          liTwo.appendChild(newTextTwo);
+          se.appendChild(liTwo);
+        }
+        
+    var dt = new Date();
+    var checkIn = document.createTextNode(" checked in: " + dt.toUTCString());
+    li.appendChild(checkIn);
+    var checkInTwo = document.createTextNode(" checked in: " + dt.toUTCString());
+    liTwo.appendChild(checkInTwo);
+    }
+    
+   function removeTwo(){
+    var gue = document.getElementById('guestsTwo').value;
+    var elim = document.getElementsByTagName('ol')[4];
+    var ulTag = elim.childNodes[0];
+    elim.removeChild(ulTag);
+    totalGuestThree--;
+document.getElementById('putNumberHereTwo').innerHTML = "";
+    }
+    function removeAllTwo(){
+      document.getElementsByTagName('h2')[2].innerHTML = "All guests removed";
+      var hot = document.getElementsByTagName('ol')[4];
+      while (hot.hasChildNodes()) {
+        hot.removeChild(hot.firstChild);
+      }
+      totalGuestThree = 0;
+    }
+    function lockRoomTwo() {
+      var lock = document.getElementById('room3');
+      lock.style.display="none";
+    }
+    
+    var totalGuestFour = [];
+    function checkListThree() {
+      if (totalGuestFour === 4){
+                document.getElementById('putNumberHereThree').innerHTML = "Too full!";
+        }
+        else {
+        totalGuestFour++;
+           var x = document.getElementById('usersNameThree').value.toLowerCase();
+      document.getElementById('usersNameThree').value = "";
+      var li = document.createElement('li');
+      //var dt = new Date();
+      var newText = document.createTextNode(x);
+      li.appendChild(newText);
+      var olTag = document.getElementsByTagName('ol')[6];
+      olTag.appendChild(li);
+      document.getElementById('usersNameThree').innerHTML = "";
+      document.getElementsByTagName('h2')[3].innerHTML = "";
+        var se = document.getElementById('qweThree');
+        var newTextTwo = document.createTextNode(x);
+        var liTwo = document.createElement('li');
+          liTwo.appendChild(newTextTwo);
+          se.appendChild(liTwo);
+        }
+        
+    var dt = new Date();
+    var checkIn = document.createTextNode(" checked in: " + dt.toUTCString());
+    li.appendChild(checkIn);
+    var checkInTwo = document.createTextNode(" checked in: " + dt.toUTCString());
+    liTwo.appendChild(checkInTwo);
+    }
+    
+   function removeThree(){
+    var gue = document.getElementById('guestsThree').value;
+    var elim = document.getElementsByTagName('ol')[6];
+    var ulTag = elim.childNodes[0];
+    elim.removeChild(ulTag);
+    totalGuestFour--;
+document.getElementById('putNumberHereThree').innerHTML = "";
+    }
+    function removeAllThree(){
+      document.getElementsByTagName('h2')[3].innerHTML = "All guests removed";
+      var hot = document.getElementsByTagName('ol')[6];
+      while (hot.hasChildNodes()) {
+        hot.removeChild(hot.firstChild);
+      }
+      totalGuestFour = 0;
+    }
+    function lockRoomThree() {
+      var lock = document.getElementById('room4');
+      lock.style.display="none";
+    }
+    
+     var totalGuestFive = [];
+    function checkListFour() {
+      if (totalGuestFive === 4){
+                document.getElementById('putNumberHereFour').innerHTML = "Too full!";
+        }
+        else {
+        totalGuestFive++;
+           var x = document.getElementById('usersNameFour').value.toLowerCase();
+      document.getElementById('usersNameFour').value = "";
+      var li = document.createElement('li');
+      //var dt = new Date();
+      var newText = document.createTextNode(x);
+      li.appendChild(newText);
+      var olTag = document.getElementsByTagName('ol')[8];
+      olTag.appendChild(li);
+      document.getElementById('usersNameFour').innerHTML = "";
+      document.getElementsByTagName('h2')[4].innerHTML = "";
+        var se = document.getElementById('qweFour');
+        var newTextTwo = document.createTextNode(x);
+        var liTwo = document.createElement('li');
+          liTwo.appendChild(newTextTwo);
+          se.appendChild(liTwo);
+        }
+        
+    var dt = new Date();
+    var checkIn = document.createTextNode(" checked in: " + dt.toUTCString());
+    li.appendChild(checkIn);
+    var checkInTwo = document.createTextNode(" checked in: " + dt.toUTCString());
+    liTwo.appendChild(checkInTwo);
+    }
+    
+   function removeFour(){
+    var gue = document.getElementById('guestsFour').value;
+    var elim = document.getElementsByTagName('ol')[8];
+    var ulTag = elim.childNodes[0];
+    elim.removeChild(ulTag);
+    totalGuestFive--;
+document.getElementById('putNumberHereFour').innerHTML = "";
+    }
+    function removeAllFour(){
+      document.getElementsByTagName('h2')[4].innerHTML = "All guests removed";
+      var hot = document.getElementsByTagName('ol')[8];
+      while (hot.hasChildNodes()) {
+        hot.removeChild(hot.firstChild);
+      }
+      totalGuestFive = 0;
+    }
+    function lockRoomFour() {
+      var lock = document.getElementById('room5');
+      lock.style.display="none";
+    }
+    
+     var totalGuestSix = [];
+    function checkListFive() {
+      if (totalGuestSix === 4){
+                document.getElementById('putNumberHereFive').innerHTML = "Too full!";
+        }
+        else {
+        totalGuestSix++;
+           var x = document.getElementById('usersNameFive').value.toLowerCase();
+      document.getElementById('usersNameFive').value = "";
+      var li = document.createElement('li');
+      //var dt = new Date();
+      var newText = document.createTextNode(x);
+      li.appendChild(newText);
+      var olTag = document.getElementsByTagName('ol')[10];
+      olTag.appendChild(li);
+      document.getElementById('usersNameFive').innerHTML = "";
+      document.getElementsByTagName('h2')[5].innerHTML = "";
+        var se = document.getElementById('qweFive');
+        var newTextTwo = document.createTextNode(x);
+        var liTwo = document.createElement('li');
+          liTwo.appendChild(newTextTwo);
+          se.appendChild(liTwo);
+        }
+        
+    var dt = new Date();
+    var checkIn = document.createTextNode(" checked in: " + dt.toUTCString());
+    li.appendChild(checkIn);
+    var checkInTwo = document.createTextNode(" checked in: " + dt.toUTCString());
+    liTwo.appendChild(checkInTwo);
+    }
+    
+   function removeFive(){
+    var gue = document.getElementById('guestsFive').value;
+    var elim = document.getElementsByTagName('ol')[10];
+    var ulTag = elim.childNodes[0];
+    elim.removeChild(ulTag);
+    totalGuestSix--;
+document.getElementById('putNumberHereFive').innerHTML = "";
+    }
+    function removeAllFive(){
+      document.getElementsByTagName('h2')[5].innerHTML = "All guests removed";
+      var hot = document.getElementsByTagName('ol')[10];
+      while (hot.hasChildNodes()) {
+        hot.removeChild(hot.firstChild);
+      }
+      totalGuestSix = 0;
+    }
+    function lockRoomFive() {
+      var lock = document.getElementById('room6');
+      lock.style.display="none";
+    }
+    </script>
+  </body>
+</html>
