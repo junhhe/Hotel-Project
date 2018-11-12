@@ -1,45 +1,53 @@
+
 <html>
   <head>
     <style>
+   #bg1{
+     background-image:url("https://ak3.picdn.net/shutterstock/videos/2166533/thumb/1.jpg");
+background-size: cover;
+    }
       #room1 {
-        width:16vw;
+        width:14vw;
         height:100vh;
-        background-color:red;
         float:left;
       }
       #room2 {
-        width:16vw;
+        width:14vw;
         height:100vh;
-        background-color:orange;
         float:left;
       }
       #room3 {
-        width:16vw;
+        width:14vw;
         height:100vh;
-        background-color:yellow;
         float:left;
       }
       #room4 {
-        width:16vw;
+        width:14vw;
         height:100vh;
-        background-color:green;
         float:left;
       }
       #room5 {
-        width:16vw;
+        width:14vw;
         height:100vh;
-        background-color:blue;
         float:left;
       }
       #room6 {
-        width:16vw;
+        width:14vw;
         height:100vh;
-        background-color:purple;
         float:left;
       }
+      #star{
+        width:10vw;
+        height:12vh;
+  -webkit-clip-path: polygon(50% 0%, 38% 40%, 0% 40%, 30% 60%, 10% 100%, 50% 75%, 90% 100%, 70% 60%, 100% 40%, 62% 40%);
+  -webkit-shape-outside: polygon(50% 0%, 38% 40%, 0% 40%, 30% 60%, 10% 100%, 50% 75%, 90% 100%, 70% 60%, 100% 40%, 62% 40%);
+float:right;
+background-color:yellow;
+
+}
     </style>
   </head>
-  <body>
+  <body id="bg1">
         <h1>Junhong's Hotel</h1>
       <div id="room1">
         <h1>Room 1</h1>
@@ -47,18 +55,10 @@
   <button onclick="checkList()">check in</button>
   <ol></ol>
   <h2 id="putNumberHere"></h2>
-  <button onclick="remove()">Remove a guest</button>
-  <select id="guests">
-      <option value="0">1</option>
-      <option value="1">2</option>
-      <option value="2">3</option>
-      <option value="3">4</option>
-      </select>
   <button onclick="removeAll()">Remove all</button>
   <button onclick="lockRoom()">Lock Room</button>
     <ol id="qwe"></ol>
 </div>
-
 
  <div id="room2">
         <h1>Room 2</h1>
@@ -66,13 +66,6 @@
   <button onclick="checkListOne()">check in</button>
   <ol></ol>
   <h2 id="putNumberHereOne"></h2>
-  <button onclick="removeOne()">Remove a guest</button>
-  <select id="guests1">
-      <option value="0">1</option>
-      <option value="1">2</option>
-      <option value="2">3</option>
-      <option value="3">4</option>
-      </select>
   <button onclick="removeAllOne()">Remove all</button>
   <button onclick="lockRoomOne()">Lock Room</button>
     <ol id="qweOne"></ol>
@@ -84,13 +77,6 @@
   <button onclick="checkListTwo()">check in</button>
   <ol></ol>
   <h2 id="putNumberHereTwo"></h2>
-  <button onclick="removeTwo()">Remove a guest</button>
-  <select id="guestsTwo">
-      <option value="0">1</option>
-      <option value="1">2</option>
-      <option value="2">3</option>
-      <option value="3">4</option>
-      </select>
   <button onclick="removeAllTwo()">Remove all</button>
   <button onclick="lockRoomTwo()">Lock Room</button>
     <ol id="qweTwo"></ol>
@@ -102,13 +88,6 @@
   <button onclick="checkListThree()">check in</button>
   <ol></ol>
   <h2 id="putNumberHereThree"></h2>
-  <button onclick="removeThree()">Remove a guest</button>
-  <select id="guestsThree">
-      <option value="0">1</option>
-      <option value="1">2</option>
-      <option value="2">3</option>
-      <option value="3">4</option>
-      </select>
   <button onclick="removeAllThree()">Remove all</button>
   <button onclick="lockRoomThree()">Lock Room</button>
     <ol id="qweThree"></ol>
@@ -120,13 +99,6 @@
   <button onclick="checkListFour()">check in</button>
   <ol></ol>
   <h2 id="putNumberHereFour"></h2>
-  <button onclick="removeFour()">Remove a guest</button>
-  <select id="guestsFour">
-      <option value="0">1</option>
-      <option value="1">2</option>
-      <option value="2">3</option>
-      <option value="3">4</option>
-      </select>
   <button onclick="removeAllFour()">Remove all</button>
   <button onclick="lockRoomFour()">Lock Room</button>
     <ol id="qweFour"></ol>
@@ -138,17 +110,11 @@
   <button onclick="checkListFive()">check in</button>
   <ol></ol>
   <h2 id="putNumberHereFive"></h2>
-  <button onclick="removeFive()">Remove a guest</button>
-  <select id="guestsFive">
-      <option value="0">1</option>
-      <option value="1">2</option>
-      <option value="2">3</option>
-      <option value="3">4</option>
-      </select>
   <button onclick="removeAllFive()">Remove all</button>
   <button onclick="lockRoomFive()">Lock Room</button>
     <ol id="qweFive"></ol>
 </div>
+<div id="star"></div>
   <script>
       
       var total = [];
@@ -157,7 +123,7 @@
                 document.getElementById('putNumberHere').innerHTML = "Too full!";
         }
         else {
-        total++
+        total++;
            var x = document.getElementById('usersName').value.toLowerCase();
       document.getElementById('usersName').value = "";
       var li = document.createElement('li');
@@ -172,6 +138,8 @@
         var liTwo = document.createElement('li');
           liTwo.appendChild(newTextTwo);
           se.appendChild(liTwo);
+          li.onclick = function() {this.parentNode.removeChild(this);total--;
+}         // getting the li element and make it onclick and make it into a function which it select the stuff you are removing and get the parent node which is ol and remove the child you have selected in the first place and remove it
         }
         
     var dt = new Date();
@@ -180,14 +148,7 @@
     var checkInTwo = document.createTextNode(" checked in: " + dt.toUTCString());
     liTwo.appendChild(checkInTwo);
     }
-   function remove(){
-    var gue = document.getElementById('guests').value;
-    var elim = document.getElementsByTagName('ol')[0];
-    var ulTag = elim.childNodes[0];
-    elim.removeChild(ulTag);
-    total--;
-document.getElementById('putNumberHere').innerHTML = "";
-    }
+   
     function removeAll(){
       document.getElementsByTagName('h2')[0].innerHTML = "All guests removed";
       var hot = document.getElementsByTagName('ol')[0];
@@ -200,7 +161,7 @@ document.getElementById('putNumberHere').innerHTML = "";
       var lock = document.getElementById('room1');
       lock.style.display="none";
     }
-
+    
       var totalGuest = [];
     function checkListOne() {
       if (totalGuest === 4){
@@ -223,6 +184,7 @@ document.getElementById('putNumberHere').innerHTML = "";
         var liTwo = document.createElement('li');
           liTwo.appendChild(newTextTwo);
           se.appendChild(liTwo);
+          li.onclick = function() {this.parentNode.removeChild(this);totalGuest--;}
         }
         
     var dt = new Date();
@@ -232,14 +194,6 @@ document.getElementById('putNumberHere').innerHTML = "";
     liTwo.appendChild(checkInTwo);
     }
     
-   function removeOne(){
-    var gue = document.getElementById('guests1').value;
-    var elim = document.getElementsByTagName('ol')[2];
-    var ulTag = elim.childNodes[0];
-    elim.removeChild(ulTag);
-    totalGuest--;
-document.getElementById('putNumberHereOne').innerHTML = "";
-    }
     function removeAllOne(){
       document.getElementsByTagName('h2')[1].innerHTML = "All guests removed";
       var hot = document.getElementsByTagName('ol')[2];
@@ -275,6 +229,7 @@ document.getElementById('putNumberHereOne').innerHTML = "";
         var liTwo = document.createElement('li');
           liTwo.appendChild(newTextTwo);
           se.appendChild(liTwo);
+          li.onclick = function() {this.parentNode.removeChild(this);totalGuestThree--;}
         }
         
     var dt = new Date();
@@ -284,14 +239,6 @@ document.getElementById('putNumberHereOne').innerHTML = "";
     liTwo.appendChild(checkInTwo);
     }
     
-   function removeTwo(){
-    var gue = document.getElementById('guestsTwo').value;
-    var elim = document.getElementsByTagName('ol')[4];
-    var ulTag = elim.childNodes[0];
-    elim.removeChild(ulTag);
-    totalGuestThree--;
-document.getElementById('putNumberHereTwo').innerHTML = "";
-    }
     function removeAllTwo(){
       document.getElementsByTagName('h2')[2].innerHTML = "All guests removed";
       var hot = document.getElementsByTagName('ol')[4];
@@ -327,6 +274,7 @@ document.getElementById('putNumberHereTwo').innerHTML = "";
         var liTwo = document.createElement('li');
           liTwo.appendChild(newTextTwo);
           se.appendChild(liTwo);
+          li.onclick = function() {this.parentNode.removeChild(this);totalGuestFour--;}
         }
         
     var dt = new Date();
@@ -336,14 +284,6 @@ document.getElementById('putNumberHereTwo').innerHTML = "";
     liTwo.appendChild(checkInTwo);
     }
     
-   function removeThree(){
-    var gue = document.getElementById('guestsThree').value;
-    var elim = document.getElementsByTagName('ol')[6];
-    var ulTag = elim.childNodes[0];
-    elim.removeChild(ulTag);
-    totalGuestFour--;
-document.getElementById('putNumberHereThree').innerHTML = "";
-    }
     function removeAllThree(){
       document.getElementsByTagName('h2')[3].innerHTML = "All guests removed";
       var hot = document.getElementsByTagName('ol')[6];
@@ -379,6 +319,7 @@ document.getElementById('putNumberHereThree').innerHTML = "";
         var liTwo = document.createElement('li');
           liTwo.appendChild(newTextTwo);
           se.appendChild(liTwo);
+        li.onclick = function() {this.parentNode.removeChild(this);totalGuestFive--;}
         }
         
     var dt = new Date();
@@ -388,14 +329,6 @@ document.getElementById('putNumberHereThree').innerHTML = "";
     liTwo.appendChild(checkInTwo);
     }
     
-   function removeFour(){
-    var gue = document.getElementById('guestsFour').value;
-    var elim = document.getElementsByTagName('ol')[8];
-    var ulTag = elim.childNodes[0];
-    elim.removeChild(ulTag);
-    totalGuestFive--;
-document.getElementById('putNumberHereFour').innerHTML = "";
-    }
     function removeAllFour(){
       document.getElementsByTagName('h2')[4].innerHTML = "All guests removed";
       var hot = document.getElementsByTagName('ol')[8];
@@ -431,6 +364,7 @@ document.getElementById('putNumberHereFour').innerHTML = "";
         var liTwo = document.createElement('li');
           liTwo.appendChild(newTextTwo);
           se.appendChild(liTwo);
+        li.onclick = function() {this.parentNode.removeChild(this);totalGuestSix--;}
         }
         
     var dt = new Date();
@@ -440,14 +374,6 @@ document.getElementById('putNumberHereFour').innerHTML = "";
     liTwo.appendChild(checkInTwo);
     }
     
-   function removeFive(){
-    var gue = document.getElementById('guestsFive').value;
-    var elim = document.getElementsByTagName('ol')[10];
-    var ulTag = elim.childNodes[0];
-    elim.removeChild(ulTag);
-    totalGuestSix--;
-document.getElementById('putNumberHereFive').innerHTML = "";
-    }
     function removeAllFive(){
       document.getElementsByTagName('h2')[5].innerHTML = "All guests removed";
       var hot = document.getElementsByTagName('ol')[10];
